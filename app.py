@@ -36,13 +36,13 @@ def check_password():
 
 def ask_gemini(prompt: str) -> str:
     """
-    Wrapper for Gemini API.
+    Wrapper for the Gemini API.
     """
     if not gemini_key:
         return "No Gemini API key configured."
 
     try:
-        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest")
 
         response = model.generate_content(
             f"You are a helpful assistant for a sales database project. Answer clearly and briefly.\n\nUser: {prompt}"
@@ -51,7 +51,6 @@ def ask_gemini(prompt: str) -> str:
         return response.text
     except Exception as e:
         return f"Error talking to Gemini: {e}"
-
 
 def main():
     st.set_page_config(page_title="Sales Dashboard", layout="wide")
