@@ -42,7 +42,7 @@ def ask_gemini(prompt: str) -> str:
         return "No Gemini API key configured."
 
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
         response = model.generate_content(
             f"You are a helpful assistant for a sales database project. Answer clearly and briefly.\n\nUser: {prompt}"
